@@ -20,7 +20,20 @@ if(UNIX)
    set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g -Wall")
    set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -Wall")
 endif(UNIX)
-
+#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+#set(CMAKE_CXX_STANDARD 11)
+#set(CMAKE_CXX_STANDARD_REQUIRED ON)
+#set(CMAKE_CXX_EXTENSIONS OFF)
+#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /MP")
+set(Boost_ADDITIONAL_VERSIONS "1.55" "1.55.0")
+set(Boost_USE_STATIC_LIBS TRUE)
+#add_definitions(-DBOOST_ERROR_CODE_HEADER_ONLY)
+#add_definitions(-D_GLIBCXX_USE_CXX11_ABI=0)
+#add_definitions(-DBOOST_ALL_NO_LIB -DBOOST_ALL_DYN_LINK -DBOOST_LOG_DYN_LINK)
+#add_definitions(-DFO_BOOST_STATIC_LINK=TRUE)
+add_definitions(-DWINVER=0x500 -DBOOST_SIGNALS_NO_DEPRECATION_WARNING -DBOOST_DISABLE_ASSERTS -DNDEBUG -mthreads -Wall -Wno-unused-variable -Wno-unused-local-typedefs -Wno-narrowing -fno-strict-aliasing -fsignaling-nans -mtune=generic -fno-builtin-malloc -fno-builtin-calloc -fno-builtin-realloc -fno-builtin-free -O2 -s)
+#add_definitions(-DCMAKE_RULE_MESSAGES:BOOL=OFF -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON)
+#SET(CMAKE_EXE_LINKER_FLAGS "-static")
 # Find needed libraries
 FIND_PACKAGE(OpenGL REQUIRED)
 include_directories(${OPENGL_INCLUDE_DIR})
@@ -40,15 +53,25 @@ include_directories(${SDL_GFX_DIRS})
 FIND_PACKAGE(SDL_net REQUIRED)
 include_directories(${SDL_NET_INCLUDE_DIRS})
 
+#set(Boost_USE_STATIC_LIBS ON)
+#set(Boost_DEBUG 1)
 FIND_PACKAGE(Boost REQUIRED COMPONENTS system thread signals filesystem)
-include_directories(${Boost_INCLUDE_DIR})
+include_directories(SYSTEM ${Boost_INCLUDE_DIR})
+link_directories(${Boost_LIBRARY_DIRS})
 
+set(SGE_INCLUDE_DIR /home/acoppola/mxe/usr/i686-w64-mingw32.shared/include/SDL)
+set(SGE_LIBRARY /home/acoppola/mxe/usr/i686-w64-mingw32.shared/lib/libSGE.a)
 FIND_PACKAGE(SGE REQUIRED)
 include_directories(${SGE_INCLUDE_DIR})
 
-FIND_PACKAGE(OpenAL REQUIRED)
+set(OPENAL_INCLUDE_DIR /home/acoppola/mxe/usr/i686-w64-mingw32.shared/include/AL)
+set(OPENAL_LIBRARY /home/acoppola/mxe/usr/i686-w64-mingw32.shared/lib/libOpenAL32.dll.a)
+#FIND_PACKAGE(OpenAL REQUIRED)
 include_directories(${OPENAL_INCLUDE_DIR})
 
+#find_package(PkgConfig REQUIRED)
+#FIND_PACKAGE(dlfcn-win32 REQUIRED)
+#set(CMAKE_DL_LIBS dlfcn-win32::dl)
 
 include_directories(${PROJECT_SOURCE_DIR}/src)
 
@@ -57,14 +80,15 @@ include(sources.cmake)
 
 # Compile it as multiple static libraries (note: not compiling physics,
 # as not used by gameplayfootball)
-add_library(leaguelib ${LEAGUE_SOURCES} ${LEAGUE_HEADERS})
-add_library(gamelib ${GAME_SOURCES} ${GAME_HEADERS})
-add_library(hidlib ${HID_SOURCES} ${HID_HEADERS})
-add_library(menulib ${MENU_SOURCES} ${MENU_HEADERS})
-add_library(datalib ${DATA_SOURCES} ${DATA_HEADERS})
+add_library(leaguelib STATIC ${LEAGUE_SOURCES} ${LEAGUE_HEADERS})
+add_library(gamelib STATIC ${GAME_SOURCES} ${GAME_HEADERS})
+add_library(hidlib STATIC ${HID_SOURCES} ${HID_HEADERS})
+add_library(menulib STATIC ${MENU_SOURCES} ${MENU_HEADERS})
+add_library(datalib STATIC ${DATA_SOURCES} ${DATA_HEADERS})
 
-set(LIBRARIES gamelib hidlib menulib datalib leaguelib 
-   ${BLUNTED2_LIBRARY} ${Boost_LIBRARIES} 
+
+#set(LIBRARIES gamelib hidlib menulib datalib leaguelib ${BLUNTED2_LIBRARY} ${Boost_LIBRARIES} ${OPENAL_LIBRARY} ${SGE_LIBRARY}
+set(LIBRARIES gamelib hidlib menulib datalib leaguelib blunted2 ${Boost_LIBRARIES}
    ${SDL_IMAGE_LIBRARIES} ${SDL_TTF_LIBRARIES} ${SDL_GFX_LIBRARIES}
    ${SDL_NET_LIBRARIES}
    ${SDL_LIBRARY} ${OPENAL_LIBRARY} ${SGE_LIBRARY} dl m ${OPENGL_LIBRARIES})
@@ -96,7 +120,7 @@ set(OWN_LIBRARIES $<TARGET_OBJECTS:baselib> $<TARGET_OBJECTS:systemscommonlib>
    $<TARGET_OBJECTS:typeslib> $<TARGET_OBJECTS:frameworklib> 
    $<TARGET_OBJECTS:scenelib> $<TARGET_OBJECTS:managerslib>
    $<TARGET_OBJECTS:utilslib> $<TARGET_OBJECTS:gui2lib>)
-
+#set(OWN_LIBRARIES baselib systemcommonlib systemgraphicslib loaderslib typeslib frameworklib scenelib managerslib utlislib gui2lib)
 # Join all created static libraries into the single static or share one.
 
 # For shared library, uncomment bellow:
@@ -113,16 +137,12 @@ set(OWN_LIBRARIES $<TARGET_OBJECTS:baselib> $<TARGET_OBJECTS:systemscommonlib>
 #set_property(TARGET utilslib PROPERTY POSITION_INDEPENDENT_CODE 1)
 #set_property(TARGET gui2lib PROPERTY POSITION_INDEPENDENT_CODE 1)
 #add_library(blunted2 SHARED ${CORE_SOURCES} ${CORE_HEADERS} ${OWN_LIBRARIES})
-
-#set_target_properties(blunted2 PROPERTIES VERSION ${VERSION}
-#   SOVERSION ${VERSION_MAJOR} )
-#add_library(blunted2 SHARED ${CORE_SOURCES} ${LIBS_SOURCES} ${CORE_HEADERS}
-#   ${ALL_LIBS_HEADERS} ${OWN_LIBRARIES})
-
+#set_target_properties(blunted2 PROPERTIES VERSION ${VERSION} SOVERSION ${VERSION_MAJOR} )
+#add_library(blunted2 SHARED ${CORE_SOURCES} ${LIBS_SOURCES} ${CORE_HEADERS} ${ALL_LIBS_HEADERS} ${OWN_LIBRARIES})
 # For static library.
+
 add_library(blunted2 ${CORE_SOURCES} ${LIBS_SOURCES} ${CORE_HEADERS}
    ${ALL_LIBS_HEADERS} ${OWN_LIBRARIES})
-
 # Install our headers, keeping directory structure (if they are separated from
 # the sources would be easier, but separate them would be too disruptive to
 # merge on the original repository).
