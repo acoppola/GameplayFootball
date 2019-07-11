@@ -1,0 +1,24 @@
+dist: xenial
+
+before_install:
+  - sudo apt-get update
+  - sudo apt-get install make -y
+  - sudo apt-get install gcc -y
+  - sudo apt-get install g++ -y
+  - sudo apt-get install freeglut3-dev -y
+  - sudo apt-get install libsdl1.2-dev -y
+  - sudo apt-get install libsdl-image1.2-dev -y
+  - sudo apt-get install libsdl-ttf2.0-dev -y
+  - sudo apt-get install libsdl-gfx1.2-dev -y
+  - sudo apt-get install libsdl-net1.2-dev -y
+  #download libSGE
+  - git clone https://github.com/flibitijibibo/libSGE
+  - git checkout 3facdc9
+  - cd libSGE && sudo make install
+  #boostdev
+  - sudo apt-get install libboost1.62-dev -y
+  - sudo apt-get install libboost1.62-all-dev -y
+  - sudo apt-get install libopenal-dev -y
+  #
+  cmake ./
+  make
