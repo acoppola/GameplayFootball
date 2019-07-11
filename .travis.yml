@@ -2,7 +2,6 @@ sudo: false
 language: cpp
 compiler:
   - gcc
-#  - clang
 addons:
   apt:
     sources:
@@ -12,6 +11,8 @@ addons:
     - g++-6
     - clang-3.8
     - gcc
+    - gcc-mingw-w64
+    - libc6-dev-i386
     - freeglut3-dev
     - libsdl1.2-dev
     - libsdl-image1.2-dev
@@ -22,12 +23,11 @@ addons:
     - libboost-all-dev
     - libopenal-dev
 install:
-- "[ $CXX = g++ ] && export CXX=g++-6 || true"
+- "[ $CXX = gcc-mingw-w64 ] && export CXX=gcc-mingw-w64 || true"
 #- "[ $CXX = clang++ ] && export CXX=clang++-3.8 || true"
 script:
   - cmake ./
   - make
-#  - make test
 
 
   #download libSGE
