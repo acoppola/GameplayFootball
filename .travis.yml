@@ -23,10 +23,10 @@ addons:
     - libopenal-dev
 install:
 - "[ $CXX = g++ ] && export CXX=g++-6 || true"
-- "[ $CXX = clang++ ] && export CXX=clang++-3.8 || true"
+#- "[ $CXX = clang++ ] && export CXX=clang++-3.8 || true"
 script:
   - make
-  - make test
+#  - make test
 
 
   #download libSGE
