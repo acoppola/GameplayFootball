@@ -14,6 +14,7 @@
 #include "utils/gui2/widgets/image.hpp"
 #include "utils/gui2/widgets/slider.hpp"
 #include "utils/gui2/widgets/iconselector.hpp"
+#include "utils/gui2/widgets/pulldown.hpp"
 
 using namespace blunted;
 
@@ -22,14 +23,19 @@ class MatchOptionsPage : public Gui2Page {
   public:
     MatchOptionsPage(Gui2WindowManager *windowManager, const Gui2PageData &pageData);
     virtual ~MatchOptionsPage();
+    virtual void ProcessWindowingEvent(WindowingEvent *event);
 
-    void GoLoadingMatchPage();
+    void GoFormationPage();
 
-    Gui2Button *buttonStart;
+    Gui2Button *buttonFormation;
 
   protected:
-    Gui2Slider *difficultySlider;
-    Gui2Slider *matchDurationSlider;
+    Gui2Slider *refereeStrictnessSlider;
+    Gui2Image *bg;
+    //Gui2Pulldown *stadiumPulldown;
+    //Gui2Pulldown *durationPulldown;
+    //Gui2Pulldown *difficultyPulldown;
+    Gui2Pulldown *matchOptionsPulldown[3];
 
 };
 

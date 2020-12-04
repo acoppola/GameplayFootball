@@ -55,9 +55,9 @@ MenuScene::MenuScene() {
     containerNode->AddObject(hoverLights[i]);
   }
 
-  hoverLights[0]->SetColor(Vector3(1.0f, 0.3f, 0.3f) * hoverLightBrightness);
-  hoverLights[1]->SetColor(Vector3(0.3f, 1.0f, 0.3f) * hoverLightBrightness);
-  hoverLights[2]->SetColor(Vector3(0.3f, 0.3f, 1.0f) * hoverLightBrightness);
+  hoverLights[0]->SetColor(Vector3(0.2f, 0.2f, 0.2f) * hoverLightBrightness);
+  hoverLights[1]->SetColor(Vector3(0.35f, 0.35f, 0.35f) * hoverLightBrightness);
+  hoverLights[2]->SetColor(Vector3(0.5f, 0.5f, 0.5f) * hoverLightBrightness);
 
 
   // geometry

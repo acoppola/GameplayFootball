@@ -327,6 +327,7 @@ set(UTILS_GUI2_WIDGETS_HEADERS
         src/utils/gui2/widgets/menu.hpp
         src/utils/gui2/widgets/root.hpp
         src/utils/gui2/widgets/button.hpp
+        src/utils/gui2/widgets/imagebutton.hpp
         )
 
 set(UTILS_GUI2_SOURCES
@@ -335,6 +336,7 @@ set(UTILS_GUI2_SOURCES
         src/utils/gui2/widgets/menu.cpp
         src/utils/gui2/widgets/editline.cpp
         src/utils/gui2/widgets/button.cpp
+        src/utils/gui2/widgets/imagebutton.cpp
         src/utils/gui2/widgets/image.cpp
         src/utils/gui2/widgets/grid.cpp
         src/utils/gui2/widgets/root.cpp
@@ -493,7 +495,9 @@ set(MENU_HEADERS
    src/menu/pagefactory.hpp
    src/menu/widgets/gameplansubmenu.hpp
    src/menu/widgets/planmap.hpp
+   src/menu/widgets/playerdetail.hpp
    src/menu/startmatch/matchoptions.hpp
+   src/menu/startmatch/formation.hpp
    src/menu/startmatch/loadingmatch.hpp
    src/menu/startmatch/teamselect.hpp
    src/menu/menutask.hpp
@@ -527,7 +531,9 @@ set(MENU_SOURCES
    src/menu/gameplan.cpp
    src/menu/widgets/planmap.cpp
    src/menu/widgets/gameplansubmenu.cpp
+   src/menu/widgets/playerdetail.cpp
    src/menu/startmatch/teamselect.cpp
+   src/menu/startmatch/formation.cpp
    src/menu/startmatch/loadingmatch.cpp
    src/menu/startmatch/matchoptions.cpp
    src/menu/visualoptions.cpp

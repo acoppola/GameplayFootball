@@ -23,6 +23,8 @@ namespace blunted {
     e_DecorationType_Dark2,
     e_DecorationType_Bright1,
     e_DecorationType_Bright2,
+    e_DecorationType_Grey1,
+    e_DecorationType_Grey2,
     e_DecorationType_Toggled
   };
 

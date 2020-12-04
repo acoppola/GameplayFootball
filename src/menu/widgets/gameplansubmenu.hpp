@@ -11,6 +11,8 @@
 #include "utils/gui2/widgets/grid.hpp"
 #include "utils/gui2/widgets/button.hpp"
 #include "utils/gui2/widgets/slider.hpp"
+#include "menu/widgets/playerdetail.hpp"
+#include "../../data/playerdata.hpp"
 
 using namespace blunted;
 
@@ -24,6 +26,7 @@ class GamePlanSubMenu : public Gui2View {
 
     Gui2Button *AddButton(const std::string &buttonName, const std::string &buttonCaption, int row, int column, Vector3 color);
     Gui2Slider *AddSlider(const std::string &sliderName, const std::string &sliderCaption, int row, int column);
+    void SetPlayerData(PlayerData *pd);
 
     // returns first toggled button in grid
     Gui2Button *GetToggledButton(Gui2Button *except);
@@ -38,6 +41,7 @@ class GamePlanSubMenu : public Gui2View {
     Gui2Grid *grid;
     Gui2Grid *mainGrid; // root menu's grid
     Gui2View *parentFocus;
+    Gui2PlayerDetail *playerDetail_one;
 
     std::vector<Gui2Button*> allButtons; // cache for GetToggledbutton()
 

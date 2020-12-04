@@ -5,12 +5,15 @@
 #include "gameplansubmenu.hpp"
 
 GamePlanSubMenu::GamePlanSubMenu(Gui2WindowManager *windowManager, Gui2View *parentFocus, Gui2Grid *mainGrid, const std::string &name) : Gui2View(windowManager, name, 0, 0, 100, 100), mainGrid(mainGrid), parentFocus(parentFocus) {
-  grid = new Gui2Grid(windowManager, "gameplan_grid_" + name, 0, 0, 0, 0);
+  grid = new Gui2Grid(windowManager, "gameplan_grid_" + name, 0, 10, 0, 0);
+  playerDetail_one = new Gui2PlayerDetail(windowManager, "detail_one", -1, 0, 0, 40, 10);
+  this->AddView(playerDetail_one);
   this->AddView(grid);
   mainGrid->AddView(this, 1, 0);
   mainGrid->UpdateLayout(0.0);
   grid->SetQuickScroll(true);
   grid->Show();
+  playerDetail_one->Show();
 
   sig_OnClose.connect(boost::bind(&GamePlanSubMenu::OnClose, this));
 }
@@ -22,9 +25,14 @@ GamePlanSubMenu::~GamePlanSubMenu() {
 void GamePlanSubMenu::OnClose() {
 }
 
+void GamePlanSubMenu::SetPlayerData(PlayerData *pd) {
+  playerDetail_one->SetPlayerData(pd);
+  playerDetail_one->Redraw();
+}
+
 Gui2Button *GamePlanSubMenu::AddButton(const std::string &buttonName, const std::string &buttonCaption, int row, int column, Vector3 color = Vector3(-1)) {
   if (color.coords[0] < 0) color = windowManager->GetStyle()->GetColor(e_DecorationType_Bright1);
-  Gui2Button *theButton = new Gui2Button(windowManager, "gameplan_button_submenu_" + name + "_" + buttonName, 0, 0, 34, 3, buttonCaption);
+  Gui2Button *theButton = new Gui2Button(windowManager, "gameplan_button_submenu_" + name + "_" + buttonName, 0, 0, 38, 3, buttonCaption);
   theButton->SetColor(color);
   allButtons.push_back(theButton);
   grid->AddView(theButton, row, column);

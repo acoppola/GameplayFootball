@@ -1254,6 +1254,19 @@ GraphicsPage::GraphicsPage(Gui2WindowManager *windowManager, const Gui2PageData 
         resolutions.push_back(res);
       //}
     //}
+    //get available fullscreen/hardware modes
+/*    modes = SDL_ListModes(&format, SDL_FULLSCREEN);
+    if (modes) {
+      for(int i = 0; modes[i]; ++i) {
+        Resolution res;
+        res.x = modes[i]->w;
+        res.y = modes[i]->h;
+        res.bpp = bpp;
+        res.fullscreen = false;
+        //if (res.bpp == 32) if (!CheckDuplicate(resolutions, res.x, res.y))
+        resolutions.push_back(res);
+      }
+    }*/
   }
 #endif
 

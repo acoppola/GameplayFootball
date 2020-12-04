@@ -12,6 +12,7 @@
 #include "utils/gui2/widgets/grid.hpp"
 #include "utils/gui2/widgets/button.hpp"
 #include "utils/gui2/widgets/image.hpp"
+#include "utils/gui2/widgets/imagebutton.hpp"
 #include "utils/gui2/widgets/capturekey.hpp"
 
 #include "../utils.hpp"
@@ -114,7 +115,7 @@ class MainMenuPage : public Gui2Page {
   protected:
     Gui2Grid *grid;
 
-    std::vector<Gui2Button*> buttons;
+    std::vector<Gui2ImageButton*> buttons;
 
     std::map < int, std::vector<int> > ageValues;
     std::map < int, float > averageStatPerAge;

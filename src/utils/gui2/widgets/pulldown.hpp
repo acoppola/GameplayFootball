@@ -28,6 +28,7 @@ namespace blunted {
       void PullDownOrUp();
       void SetSelected(int selectedEntry);
       std::string GetSelected() const;
+      int GetSelectedIndex();
 
       virtual void ProcessWindowingEvent(WindowingEvent *event);
 

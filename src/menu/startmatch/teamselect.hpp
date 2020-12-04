@@ -14,6 +14,7 @@
 #include "utils/gui2/widgets/image.hpp"
 #include "utils/gui2/widgets/slider.hpp"
 #include "utils/gui2/widgets/iconselector.hpp"
+#include "utils/gui2/widgets/pulldown.hpp"
 
 #include "../../onthepitch/match.hpp"
 
@@ -25,6 +26,8 @@ class TeamSelectPage : public Gui2Page {
     TeamSelectPage(Gui2WindowManager *windowManager, const Gui2PageData &pageData);
     virtual ~TeamSelectPage();
 
+    void FocusNationSelect2();
+    void FocusCompetitionSelect1();
     void FocusTeamSelect1();
     void FocusStart1();
     void FocusCompetitionSelect2();
@@ -32,6 +35,8 @@ class TeamSelectPage : public Gui2Page {
     void FocusStart2();
     void SetupTeamSelect1();
     void SetupTeamSelect2();
+    void SetupCompetitionSelect1();
+    void SetupCompetitionSelect2();
     void GoOptionsMenu();
 
     virtual void ProcessWindowingEvent(WindowingEvent *event);
@@ -41,12 +46,15 @@ class TeamSelectPage : public Gui2Page {
     Gui2Caption *p2;
     Gui2Grid *grid2;
     Gui2Image *bg2;
+    Gui2Pulldown *currencySelectPulldown;
 
   protected:
     Gui2IconSelector *teamSelect1;
     Gui2IconSelector *teamSelect2;
     Gui2IconSelector *competitionSelect1;
     Gui2IconSelector *competitionSelect2;
+    Gui2IconSelector *nationSelect1;
+    Gui2IconSelector *nationSelect2;
 
 };
 

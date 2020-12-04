@@ -89,6 +89,10 @@ namespace blunted {
     return entries.at(selectedEntry).name;
   }
 
+  int Gui2Pulldown::GetSelectedIndex() {
+    return this->selectedEntry;
+  }
+
   void Gui2Pulldown::ProcessWindowingEvent(WindowingEvent *event) {
     if (event->IsEscape()) {
       if (pulledDown) PullDownOrUp(); else event->Ignore();

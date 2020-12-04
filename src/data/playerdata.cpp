@@ -20,6 +20,7 @@ PlayerData::PlayerData(int playerDatabaseID) : databaseID(playerDatabaseID) {
   std::string roleString;
   std::string profileString;
   float baseStat = 0.0f;
+  baseStatOverall = 0.50f;
   int age = 15;
 
   skinColor = int(round(random(1, 4)));
@@ -39,7 +40,7 @@ PlayerData::PlayerData(int playerDatabaseID) : databaseID(playerDatabaseID) {
     if (result->header.at(c).compare("haircolor") == 0) hairColor = result->data.at(0).at(c);
     if (result->header.at(c).compare("height") == 0) height = atof(result->data.at(0).at(c).c_str());
   }
-
+  baseStatOverall = baseStat;
   delete result;
 
   std::vector<std::string> roleStrings;
@@ -75,6 +76,7 @@ PlayerData::PlayerData() {
   hairStyle = "short01";
   hairColor = "darkblonde";
   height = 1.8f;
+  baseStatOverall = 0.50f;
 
   stats.Set("physical_balance", 0.6);
   stats.Set("physical_reaction", 0.6);
@@ -105,6 +107,47 @@ PlayerData::~PlayerData() {
 
 const std::vector<e_PlayerRole> &PlayerData::GetRoles() const {
   return roles;
+}
+
+float PlayerData::GetOverall() {
+  e_PlayerRole role = roles[0]; 
+  switch (role) {
+    case e_PlayerRole_GK:
+      return baseStatOverall*100;
+      break;
+    case e_PlayerRole_CB:
+      return baseStatOverall*100;
+      break;
+    case e_PlayerRole_LB:
+      return baseStatOverall*100;
+      break;
+    case e_PlayerRole_RB:
+      return baseStatOverall*100;
+      break;
+    case e_PlayerRole_DM:
+      return baseStatOverall*100;
+      break;
+    case e_PlayerRole_CM:
+      return baseStatOverall*100;
+      break;
+    case e_PlayerRole_LM:
+      return baseStatOverall*100;
+      break;
+    case e_PlayerRole_RM:
+      return baseStatOverall*100;
+      break;
+    case e_PlayerRole_AM:
+      return baseStatOverall*100;
+      break;
+    case e_PlayerRole_CF:
+      return baseStatOverall*100;
+      break;
+    default:
+      return baseStatOverall*100;
+      break;
+  }
+
+  return baseStatOverall*100;
 }
 
 float PlayerData::GetStat(const char *name) {

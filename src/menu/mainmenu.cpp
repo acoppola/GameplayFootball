@@ -86,22 +86,26 @@ void OutroPage::ProcessKeyboardEvent(KeyboardEvent *event) {
 
 
 MainMenuPage::MainMenuPage(Gui2WindowManager *windowManager, const Gui2PageData &pageData) : Gui2Page(windowManager, pageData) {
-  Gui2Image *title = new Gui2Image(windowManager, "image_main_title", 28, 32, 44, 20);
-  title->LoadImage("media/menu/main/title01.png");
+ // Gui2Image *title = new Gui2Image(windowManager, "image_main_title", 28, 32, 44, 20);
+ // title->LoadImage("media/menu/main/title01.png");
 
-  this->AddView(title);
-  title->Show();
+ // this->AddView(title);
+ // title->Show();
 
-  buttons.push_back(new Gui2Button(windowManager, "button_main_start", 0, 0, 20, 3, "Match"));
-  buttons.push_back(new Gui2Button(windowManager, "button_main_cup", 0, 0, 20, 3, "Cup"));
-  buttons.push_back(new Gui2Button(windowManager, "button_main_league", 0, 0, 20, 3, "League"));
-  buttons.push_back(new Gui2Button(windowManager, "button_main_edit", 0, 0, 20, 3, "Editor"));
-  buttons.push_back(new Gui2Button(windowManager, "button_main_settings", 0, 0, 20, 3, "Settings"));
-  buttons.push_back(new Gui2Button(windowManager, "button_main_credits", 0, 0, 20, 3, "Credits"));
-  buttons.push_back(new Gui2Button(windowManager, "button_main_quit", 0, 0, 20, 3, "Exit"));
-  if (!IsReleaseVersion()) {
+  //Gui2ImageButton *ib = new Gui2ImageButton(windowManager, "button_main_friendly", 28, 8, 30, 12, "Friendly", "media/menu/main/friendly.png");
+  //this->AddView(ib);
+  //ib->Show();
+
+  buttons.push_back(new Gui2ImageButton(windowManager, "button_main_start", 0, 0, 30, 12, "Match", "media/menu/main/friendly.png"));
+  buttons.push_back(new Gui2ImageButton(windowManager, "button_main_cup", 0, 0, 30, 12, "Cup", "media/menu/main/friendly.png"));
+  buttons.push_back(new Gui2ImageButton(windowManager, "button_main_league", 0, 0, 30, 12, "League", "media/menu/main/friendly.png"));
+  buttons.push_back(new Gui2ImageButton(windowManager, "button_main_edit", 0, 0, 30, 12, "Editor", "media/menu/main/friendly.png"));
+  buttons.push_back(new Gui2ImageButton(windowManager, "button_main_settings", 0, 0, 30, 12, "Settings", "media/menu/main/friendly.png"));
+  buttons.push_back(new Gui2ImageButton(windowManager, "button_main_credits", 0, 0, 30, 12, "Credits", "media/menu/main/friendly.png"));
+  buttons.push_back(new Gui2ImageButton(windowManager, "button_main_quit", 0, 0, 30, 12, "Exit", "media/menu/main/friendly.png"));
+  /*if (!IsReleaseVersion()) {
     buttons.push_back(new Gui2Button(windowManager, "button_main_import", 0, 0, 20, 3, "Import FM"));
-  }
+  }*/
 
   buttons.at(0)->sig_OnClick.connect(boost::bind(&MainMenuPage::GoControllerSelect, this));
   buttons.at(2)->sig_OnClick.connect(boost::bind(&MainMenuPage::GoLeague, this));
@@ -115,12 +119,12 @@ MainMenuPage::MainMenuPage(Gui2WindowManager *windowManager, const Gui2PageData 
   if (!IsReleaseVersion()) {
     buttons.at(7)->sig_OnClick.connect(boost::bind(&MainMenuPage::GoImportDB, this));
   }
-
+//activation of cup,league and edit
   buttons.at(1)->SetActive(false);
   buttons.at(2)->SetActive(false);
   buttons.at(3)->SetActive(false);
 
-  grid = new Gui2Grid(windowManager, "grid_main", 29.25, 52, 41.5, 40);
+  grid = new Gui2Grid(windowManager, "grid_main", 29.25-12, 52-25, 41.5, 40);
 
   grid->AddView(buttons.at(0), 0, 0);
   grid->AddView(buttons.at(1), 1, 0);
@@ -210,8 +214,12 @@ bool SortClubPlayersByRole(const PlayerImport &a, const PlayerImport &b) {
   int defPos = -1;
   int attPos = -1;
   for (unsigned int statPos = 0; statPos < a.profileStats.size(); statPos++) {
-    if (a.profileStats.at(statPos).name.compare("mental_defensivepositioning") == 0) { aDef = a.profileStats.at(statPos).value; defPos = statPos; }
-    if (a.profileStats.at(statPos).name.compare("mental_offensivepositioning") == 0) { aAtt = a.profileStats.at(statPos).value; attPos = statPos; }
+    if (a.profileStats.at(statPos).name.compare("mental_defensivepositioning") == 0) { 
+      aDef = a.profileStats.at(statPos).value; defPos = statPos; 
+    }
+    if (a.profileStats.at(statPos).name.compare("mental_offensivepositioning") == 0) { 
+      aAtt = a.profileStats.at(statPos).value; attPos = statPos; 
+      }
     if (defPos != -1 && attPos != -1) break;
   }
 
@@ -249,7 +257,8 @@ std::string RenameClub(Database *namedb, const std::string &name, const std::str
 }
 
 ClubData GetClubData(Database *namedb, const std::string &name) {
-  std::string query = "select formation_xml, tactics_xml, shortname, color1, color2 from clubnames where name = \"" + name + "\" limit 1;";
+  std::string query = "select formation_xml, tactics_xml, shortname, color1, color2 from clubnames where name = \"" +
+   name + "\" limit 1;";
   DatabaseResult *result = namedb->Query(query);
   ClubData data;
   if (result->data.size() > 0) {

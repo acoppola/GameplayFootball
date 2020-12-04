@@ -25,6 +25,7 @@ class PlayerData {
     const std::vector<e_PlayerRole> &GetRoles() const;
 
     float GetStat(const char *name);
+    float GetOverall();
 
     int GetSkinColor() { return skinColor; }
     std::string GetHairStyle() { return hairStyle; }
@@ -36,8 +37,9 @@ class PlayerData {
     std::string firstName;
     std::string lastName;
     std::vector<e_PlayerRole> roles;
-
+    
     Properties stats;
+    float baseStatOverall;
 
     int skinColor;
     std::string hairStyle;

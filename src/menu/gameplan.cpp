@@ -5,6 +5,7 @@
 #include "gameplan.hpp"
 
 #include "../main.hpp"
+#include "base/log.hpp"
 
 #include "mainmenu.hpp"
 
@@ -22,8 +23,8 @@ GamePlanPage::GamePlanPage(Gui2WindowManager *windowManager, const Gui2PageData 
   bg1->LoadImage("media/menu/backgrounds/black.png");
   bg1->Show();
 
-  Gui2Caption *header = new Gui2Caption(windowManager, "gameplan_header", xOffset, 11, 35, 3, "Team " + int_to_str(teamID + 1) + " game plan");
-  grid = new Gui2Grid(windowManager, "gameplan_grid", xOffset, 15, 0, 0);
+  Gui2Caption *header = new Gui2Caption(windowManager, "gameplan_header", xOffset, 6, 35, 3, "Team " + int_to_str(teamID + 1) + " game palan");
+  grid = new Gui2Grid(windowManager, "gameplan_grid", xOffset, 10, 0, 0);
   gridNav = new Gui2Grid(windowManager, "gameplan_grid_navigation", xOffset, 0, 0, 0);
 
   map = new Gui2PlanMap(windowManager, "gameplan_planmap", 0, 0, 35, 28, teamData);
@@ -34,10 +35,10 @@ GamePlanPage::GamePlanPage(Gui2WindowManager *windowManager, const Gui2PageData 
   buttonLineup->sig_OnClick.connect(boost::bind(&GamePlanPage::GoLineupMenu, this));
   buttonTactics->sig_OnClick.connect(boost::bind(&GamePlanPage::GoTacticsMenu, this));
 
-
+//unlock lineuop and formation
   if (IsReleaseVersion()) {
-    buttonLineup->SetActive(false);
-    buttonFormation->SetActive(false);
+    buttonLineup->SetActive(true);
+    buttonFormation->SetActive(true);
   }
 
   this->sig_OnClose.connect(boost::bind(&GamePlanPage::OnClose, this));
@@ -89,6 +90,7 @@ void GamePlanPage::Reactivate() {
 Vector3 GamePlanPage::GetButtonColor(int id) {
   Vector3 color = windowManager->GetStyle()->GetColor(e_DecorationType_Bright1);
   if (id > 10) color = Vector3(240, 140, 60);
+  if (id > 17) color = Vector3(80, 240, 140);
   if (id > 21) color = Vector3(80, 140, 255);
   return color;
 }
@@ -103,7 +105,20 @@ void GamePlanPage::GoLineupMenu() {
   const std::vector<PlayerData*> &playerData = teamData->GetPlayerData();
   for (unsigned int i = 0; i < playerData.size(); i++) {
     Vector3 color = GetButtonColor(i);
-    Gui2Button *button = lineupMenu->AddButton("playerbutton_id" + int_to_str(playerData.at(i)->GetDatabaseID()), playerData.at(i)->GetLastName(), i, 0, color);
+    std::string playerFullName;
+    std::ostringstream ss;
+    playerFullName.append(playerData.at(i)->GetFirstName());
+    playerFullName.append(" ");
+    playerFullName.append(playerData.at(i)->GetLastName());
+    playerFullName.append(" ");
+    ss << std::fixed << std::setprecision(0) << playerData.at(i)->GetOverall();
+    std::string s(ss.str());
+    playerFullName.append(s);
+    playerFullName.append(" ");
+    if(i<11){
+        playerFullName.append(GetRoleName(teamData->GetFormationEntry(i).role));
+    }
+    Gui2Button *button = lineupMenu->AddButton("playerbutton_id" + int_to_str(playerData.at(i)->GetDatabaseID()), playerFullName, i, 0, color);
     button->sig_OnClick.connect(boost::bind(&GamePlanPage::LineupMenuOnClick, this, _1));
     button->SetToggleable(true);
     if (i == 0) button->SetFocus();
@@ -115,7 +130,7 @@ void GamePlanPage::GoLineupMenu() {
 void GamePlanPage::LineupMenuOnClick(Gui2Button *button) {
   Gui2Button *selected = lineupMenu->GetToggledButton(button);
   if (selected) {
-    // switch players
+    // switch playerss
     selected->SetToggled(false);
     button->SetToggled(false);
 

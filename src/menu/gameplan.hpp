@@ -48,6 +48,7 @@ class GamePlanPage : public Gui2Page {
     void GoLineupMenu();
     void LineupMenuOnClick(Gui2Button *button);
     void SaveLineup();
+    void SetForRedraw();
 
     void GoTacticsMenu();
     void TacticsMenuOnChange(Gui2Slider *slider, int id);

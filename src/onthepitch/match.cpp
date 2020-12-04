@@ -220,7 +220,8 @@ Match::Match(MatchData *matchData, const std::vector<IHIDevice*> &controllers) :
   Log(e_Notice, "Match", "Match", "Generating pitch");
 
   if (IsReleaseVersion()) {
-    GeneratePitch(2048, 1024, 1024, 512, 2048, 1024);
+    //GeneratePitch(2048, 1024, 1024, 512, 2048, 1024);
+    GeneratePitch(1024, 512, 1024, 512, 2048, 1024);
   } else {
     GeneratePitch(1024, 512, 1024, 512, 2048, 1024);
   }

@@ -20,14 +20,15 @@ namespace blunted {
     public:
       Gui2PlanMap(Gui2WindowManager *windowManager, const std::string &name, float x_percent, float y_percent, float width_percent, float height_percent, TeamData *teamData);
       virtual ~Gui2PlanMap();
-
+      virtual void Redraw();
       virtual void Process();
+      void SetForRedraw();
 
     protected:
       boost::intrusive_ptr<Image2D> image;
 
       int w, h;
-
+      bool toRedraw;
       SDL_Surface *bg;
 
       TeamData *teamData;
@@ -37,7 +38,7 @@ namespace blunted {
   class Gui2PlanMapEntry : public Gui2View {
 
     public:
-      Gui2PlanMapEntry(Gui2WindowManager *windowManager, const std::string &name, float x_percent, float y_percent, float width_percent, float height_percent, const std::string &roleName, const std::string &playerName);
+      Gui2PlanMapEntry(Gui2WindowManager *windowManager, const std::string &name, float x_percent, float y_percent, float width_percent, float height_percent, const std::string &roleName, const std::string &playerName, const std::string &overall);
       virtual ~Gui2PlanMapEntry();
 
     protected:
@@ -45,6 +46,7 @@ namespace blunted {
 
       Gui2Caption *roleNameCaption; // formerly: captionView
       Gui2Caption *playerNameCaption;
+      Gui2Caption *overallNameCaption;
 
   };
 

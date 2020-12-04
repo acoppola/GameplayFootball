@@ -33,6 +33,7 @@ class TeamData {
     std::string GetName() { return name; }
     std::string GetShortName() { return shortName; }
     std::string GetLogoUrl() { return logo_url; }
+    std::string GetLeagueLogo() { return league_logo; }
     std::string GetKitUrl() { return kit_url; }
     Vector3 GetColor1() { return color1; }
     Vector3 GetColor2() { return color2; }
@@ -65,6 +66,7 @@ class TeamData {
     std::string logo_url;
     std::string kit_url;
     Vector3 color1, color2;
+    std::string league_logo;
 
     TeamTactics tactics;
 

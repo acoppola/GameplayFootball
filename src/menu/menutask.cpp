@@ -72,11 +72,16 @@ MenuTask::MenuTask(float aspectRatio, float margin, TTF_Font *defaultFont, TTF_F
   // huisstijl:
   // blauw: 0, 100, 220
   // orange: 240, 100, 0
-  style->SetColor(e_DecorationType_Dark1, Vector3(20, 35, 55));
-  style->SetColor(e_DecorationType_Dark2, Vector3(60, 35, 20));
-  style->SetColor(e_DecorationType_Bright1, Vector3(150, 180, 220));
-  style->SetColor(e_DecorationType_Bright2, Vector3(240, 150, 100));
+  style->SetColor(e_DecorationType_Dark1, Vector3(35, 30, 15));
+  style->SetColor(e_DecorationType_Dark2, Vector3(40, 35, 20));
+  style->SetColor(e_DecorationType_Bright1, Vector3(255, 255, 255));
+  style->SetColor(e_DecorationType_Bright2, Vector3(200, 100, 0));
   style->SetColor(e_DecorationType_Toggled, Vector3(240, 60, 60));
+  // style->SetColor(e_DecorationType_Dark1, Vector3(20, 35, 55));
+  // style->SetColor(e_DecorationType_Dark2, Vector3(60, 35, 20));
+  // style->SetColor(e_DecorationType_Bright1, Vector3(150, 180, 220));
+  // style->SetColor(e_DecorationType_Bright2, Vector3(240, 150, 100));
+  // style->SetColor(e_DecorationType_Toggled, Vector3(240, 60, 60));
 
   windowManager->SetTimeStep_ms(10);
 

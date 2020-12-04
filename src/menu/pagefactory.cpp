@@ -11,6 +11,7 @@
 #include "startmatch/teamselect.hpp"
 #include "startmatch/matchoptions.hpp"
 #include "startmatch/loadingmatch.hpp"
+#include "startmatch/formation.hpp"
 #include "ingame/gamepage.hpp"
 #include "ingame/phasemenu.hpp"
 #include "ingame/gameover.hpp"
@@ -74,6 +75,10 @@ Gui2Page *PageFactory::CreatePage(const Gui2PageData &pageData) {
 
     case e_PageID_MatchOptions:
       page = new MatchOptionsPage(windowManager, pageData);
+      break;
+
+    case e_PageID_Formation:
+      page = new FormationPage(windowManager, pageData);
       break;
 
     case e_PageID_LoadingMatch:

@@ -58,7 +58,7 @@ Vector3 GetDefaultRolePosition(e_PlayerRole role) {
 
 TeamData::TeamData(int teamDatabaseID) : databaseID(teamDatabaseID) {
 
-  DatabaseResult *result = GetDB()->Query("select teams.name, teams.logo_url, teams.kit_url, teams.formation_xml, teams.formation_factory_xml, teams.tactics_xml, teams.tactics_factory_xml, teams.shortname, teams.color1, teams.color2 from teams, leagues where teams.id = " + int_to_str(databaseID) + " and leagues.id = teams.league_id limit 1");
+  DatabaseResult *result = GetDB()->Query("select teams.name, teams.logo_url, teams.kit_url, teams.formation_xml, teams.formation_factory_xml, teams.tactics_xml, teams.tactics_factory_xml, teams.shortname, teams.color1, teams.color2, leagues.logo_url as league_logo from teams, leagues where teams.id = " + int_to_str(databaseID) + " and leagues.id = teams.league_id limit 1");
 
   std::string formationString;
   std::string factoryFormationString;
@@ -83,6 +83,7 @@ TeamData::TeamData(int teamDatabaseID) : databaseID(teamDatabaseID) {
     if (result->header.at(c).compare("shortname") == 0) shortName = result->data.at(0).at(c);
     if (result->header.at(c).compare("color1") == 0) color1 = GetVectorFromString(result->data.at(0).at(c));
     if (result->header.at(c).compare("color2") == 0) color2 = GetVectorFromString(result->data.at(0).at(c));
+    if (result->header.at(c).compare("league_logo") == 0) league_logo = result->data.at(0).at(c);
   }
 
   if (shortName.compare("") == 0) {
@@ -95,7 +96,7 @@ TeamData::TeamData(int teamDatabaseID) : databaseID(teamDatabaseID) {
 
   logo_url = "databases/default/" + logo_url;
   kit_url = "databases/default/" + kit_url;
-
+  league_logo = "databases/default/" + league_logo;
 
   // team formation
 
@@ -248,7 +249,9 @@ TeamData::TeamData(int teamDatabaseID) : databaseID(teamDatabaseID) {
   std::string order = "formationorder";
   if (national) order = "nationalformationorder";
 
-  result = GetDB()->Query("select id from players where team_id = " + int_to_str(teamDatabaseID) + " or nationalteam_id = " + int_to_str(teamDatabaseID) + " order by " + order);
+  //result = GetDB()->Query("select id from players where team_id = " + int_to_str(teamDatabaseID) + " or nationalteam_id = " + int_to_str(teamDatabaseID) + " order by " + order);
+  //select players.id from players inner join teamplayers on players.id=teamplayers.player_id where teamplayers.team_id = 1 order by formationorder
+  result = GetDB()->Query("select players.id from players inner join teamplayers on players.id=teamplayers.player_id where teamplayers.team_id = " + int_to_str(teamDatabaseID) + " order by " + order);
   for (unsigned int r = 0; r < result->data.size(); r++) {
     //int playerDatabaseID = atoi(playerQuery.result[r * playerQuery.columns + c]);
     int playerDatabaseID = atoi(result->data.at(r).at(0).c_str());
