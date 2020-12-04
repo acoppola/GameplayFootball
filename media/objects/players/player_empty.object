@@ -1,0 +1,128 @@
+<object>
+
+
+
+	<node>
+		<name>body</name>
+		<position>0, 0, 0.84</position>
+		<rotation>0, 0, 0, 0</rotation>
+
+
+
+
+
+	<node>
+		<name>middle</name>
+		<position>0, 0, 0.18</position>
+		<rotation>0, 0, 0, 0</rotation>
+
+		<node>
+			<name>neck</name>
+			<position>0, -0.01, 0.46</position>
+			<rotation>0, 0, 0, 0</rotation>
+	
+			<geometry>
+				<filename>head.ase</filename>
+				<name>head</name>
+			</geometry>
+		</node>
+	
+		<node>
+			<name>left_shoulder</name>
+			<position>0.17, 0, 0.35</position>
+			<rotation>10, 0, -1, 0</rotation>
+	
+
+			<node>
+				<name>left_elbow</name>
+				<position>0, 0, -0.24</position>
+				<rotation>-6, 0, -1, 0</rotation>
+	
+				<geometry>
+					<filename>lowerarm.ase</filename>
+					<name>left_lowerarm</name>
+				</geometry>
+	
+			</node>
+		</node>
+	
+		<node>
+			<name>right_shoulder</name>
+			<position>-0.17, 0, 0.35</position>
+			<rotation>10, 0, 1, 0</rotation>
+	
+
+	
+			<node>
+				<name>right_elbow</name>
+				<position>0, 0, -0.24</position>
+				<rotation>-6, 0, 1, 0</rotation>
+	
+				<geometry>
+					<filename>lowerarm.ase</filename>
+					<name>right_lowerarm</name>
+				</geometry>
+	
+			</node>
+		</node>
+	</node>
+
+	<node>
+		<name>left_thigh</name>
+		<position>0.085, 0, 0.0</position>
+		<rotation>0, 0, 0, 0</rotation>
+
+
+
+		<node>
+			<name>left_knee</name>
+			<position>0, 0, -0.38</position>
+			<rotation>0, 0, 0, 0</rotation>
+
+
+
+			<node>
+				<name>left_ankle</name>
+				<position>0, 0, -0.42</position>
+				<rotation>0, 0, 0, 0</rotation>
+
+				<geometry>
+					<filename>foot.ase</filename>
+					<name>left_foot</name>
+				</geometry>
+			</node>
+		</node>
+	</node>
+
+	<node>
+		<name>right_thigh</name>
+		<position>-0.085, 0, 0.0</position>
+		<rotation>0, 0, 0, 0</rotation>
+
+
+
+		<node>
+			<name>right_knee</name>
+			<position>0, 0, -0.38</position>
+			<rotation>0, 0, 0, 0</rotation>
+
+
+			<node>
+				<name>right_ankle</name>
+				<position>0, 0, -0.42</position>
+				<rotation>0, 0, 0, 0</rotation>
+
+				<geometry>
+					<filename>foot.ase</filename>
+					<name>right_foot</name>
+				</geometry>
+			</node>
+		</node>
+	</node>
+
+	
+
+	</node>
+
+
+</object>

@@ -1,0 +1,197 @@
+<object>
+
+	<light>
+		<name>light1</name>
+		<position>-40, -30, 200</position>
+		<properties>
+			<color>0.8, 0.8, 1.0</color>
+			<radius>600</radius>
+			<type>point</type>
+			<shadow>false</shadow>
+		</properties>
+	</light>
+	<light>
+		<name>light2</name>
+		<position>-40, 30, 200</position>
+		<properties>
+			<color>0.8, 0.8, 1.0</color>
+			<radius>600</radius>
+			<type>point</type>
+			<shadow>false</shadow>
+		</properties>
+	</light>
+	<light>
+		<name>light3</name>
+		<position>40, -30, 200</position>
+		<properties>
+			<color>0.8, 0.8, 1.0</color>
+			<radius>600</radius>
+			<type>point</type>
+			<shadow>false</shadow>
+		</properties>
+	</light>
+	<light>
+		<name>light4</name>
+		<position>40, 30, 200</position>
+		<properties>
+			<color>0.8, 0.8, 1.0</color>
+			<radius>600</radius>
+			<type>point</type>
+			<shadow>false</shadow>
+		</properties>
+	</light>
+
+
+
+
+	<light>
+		<name>light5</name>
+		<position>0, 0, 4</position>
+		<properties>
+			<color>0.8, 0.8, 1.0</color>
+			<radius>16</radius>
+			<type>point</type>
+			<shadow>false</shadow>
+		</properties>
+	</light>
+	<light>
+		<name>light6</name>
+		<position>2, 0, 4</position>
+		<properties>
+			<color>0.8, 0.8, 1.0</color>
+			<radius>16</radius>
+			<type>point</type>
+			<shadow>false</shadow>
+		</properties>
+	</light>
+	<light>
+		<name>light7</name>
+		<position>4, 0, 4</position>
+		<properties>
+			<color>0.8, 0.8, 1.0</color>
+			<radius>16</radius>
+			<type>point</type>
+			<shadow>false</shadow>
+		</properties>
+	</light>
+	<light>
+		<name>light8</name>
+		<position>6, 0, 4</position>
+		<properties>
+			<color>0.8, 0.8, 1.0</color>
+			<radius>16</radius>
+			<type>point</type>
+			<shadow>false</shadow>
+		</properties>
+	</light>
+	<light>
+		<name>light9</name>
+		<position>8, 0, 4</position>
+		<properties>
+			<color>0.8, 0.8, 1.0</color>
+			<radius>16</radius>
+			<type>point</type>
+			<shadow>false</shadow>
+		</properties>
+	</light>
+	<light>
+		<name>light10</name>
+		<position>10, 0, 4</position>
+		<properties>
+			<color>0.8, 0.8, 1.0</color>
+			<radius>16</radius>
+			<type>point</type>
+			<shadow>false</shadow>
+		</properties>
+	</light>
+
+
+
+
+	<xlight>
+		<name>xlight5</name>
+		<position>0, 0, 4</position>
+		<properties>
+			<color>0.8, 0.8, 1.0</color>
+			<radius>16</radius>
+			<type>point</type>
+			<shadow>false</shadow>
+		</properties>
+	</xlight>
+	<light>
+		<name>xlight6</name>
+		<position>-2, 0, 4</position>
+		<properties>
+			<color>0.8, 0.8, 1.0</color>
+			<radius>16</radius>
+			<type>point</type>
+			<shadow>false</shadow>
+		</properties>
+	</light>
+	<light>
+		<name>xlight7</name>
+		<position>-4, 0, 4</position>
+		<properties>
+			<color>0.8, 0.8, 1.0</color>
+			<radius>16</radius>
+			<type>point</type>
+			<shadow>false</shadow>
+		</properties>
+	</light>
+	<light>
+		<name>xlight8</name>
+		<position>-6, 0, 4</position>
+		<properties>
+			<color>0.8, 0.8, 1.0</color>
+			<radius>16</radius>
+			<type>point</type>
+			<shadow>false</shadow>
+		</properties>
+	</light>
+	<light>
+		<name>xlight9</name>
+		<position>-8, 0, 4</position>
+		<properties>
+			<color>0.8, 0.8, 1.0</color>
+			<radius>16</radius>
+			<type>point</type>
+			<shadow>false</shadow>
+		</properties>
+	</light>
+	<light>
+		<name>xlight10</name>
+		<position>-10, 10, 4</position>
+		<properties>
+			<color>0.8, 0.8, 1.0</color>
+			<radius>16</radius>
+			<type>point</type>
+			<shadow>false</shadow>
+		</properties>
+	</light>
+
+
+
+
+	<light>
+		<name>ylight1</name>
+		<position>0, -4, 4</position>
+		<properties>
+			<color>0.8, 0.8, 1.0</color>
+			<radius>16</radius>
+			<type>point</type>
+			<shadow>false</shadow>
+		</properties>
+	</light>
+
+	<light>
+		<name>ylight2</name>
+		<position>0, 4, 4</position>
+		<properties>
+			<color>0.8, 0.8, 1.0</color>
+			<radius>16</radius>
+			<type>point</type>
+			<shadow>false</shadow>
+		</properties>
+	</light>
+
+</object>

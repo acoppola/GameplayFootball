@@ -1,0 +1,15 @@
+<object>
+
+	<geometry>
+		<filename>arrowed.ase</filename>
+		<name>arrowed ball</name>
+		<properties>
+			<physicable>true</physicable>
+			<physics_collision_type>sphere</physics_collision_type>
+			<physics_collision_sphere_radius>0.11</physics_collision_sphere_radius>
+			<mass>1</mass>
+			<movable>true</movable>
+		</properties>
+	</geometry>
+
+</object>

@@ -1,0 +1,32 @@
+<object>
+
+	<geometry>
+		<filename>studio.ase</filename>
+		<name>training room</name>
+		<position>0, 0, 0</position>
+		<rotation>0, 0, 0, 0</rotation>
+	</geometry>
+
+	<light>
+		<name>lamp1</name>
+		<position>15, -10, 5</position>
+		<properties>
+			<color>3, 2.8, 2.4</color>
+			<radius>30</radius>
+			<type>point</type>
+			<shadow>false</shadow>
+		</properties>
+	</light>
+
+	<light>
+		<name>lamp2</name>
+		<position>-10, 15, 20</position>
+		<properties>
+			<color>5, 4.5, 4</color>
+			<radius>40</radius>
+			<type>point</type>
+			<shadow>false</shadow>
+		</properties>
+	</light>
+
+</object>

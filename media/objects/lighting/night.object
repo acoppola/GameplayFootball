@@ -1,0 +1,45 @@
+<object>
+
+	<light>
+		<name>light1</name>
+		<position>-50, -30, 100</position>
+		<properties>
+			<color>0.8, 0.8, 1.0</color>
+			<radius>300</radius>
+			<type>point</type>
+			<shadow>false</shadow>
+		</properties>
+	</light>
+	<light>
+		<name>light2</name>
+		<position>-50, 30, 100</position>
+		<properties>
+			<color>0.8, 0.8, 1.0</color>
+			<radius>300</radius>
+			<type>point</type>
+			<shadow>false</shadow>
+		</properties>
+	</light>
+	<light>
+		<name>light3</name>
+		<position>50, -30, 100</position>
+		<properties>
+			<color>0.8, 0.8, 1.0</color>
+			<radius>300</radius>
+			<type>point</type>
+			<shadow>false</shadow>
+		</properties>
+	</light>
+	<light>
+		<name>light4</name>
+		<position>50, 30, 100</position>
+		<properties>
+			<color>0.8, 0.8, 1.0</color>
+			<radius>300</radius>
+			<type>point</type>
+			<shadow>false</shadow>
+		</properties>
+	</light>
+
+
+</object>

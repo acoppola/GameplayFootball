@@ -1,0 +1,20 @@
+CREATE TABLE clubnames (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name varchar(64),
+  targetname varchar(64),
+  faketargetname varchar(64)
+);
+CREATE TABLE leaguenames (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name varchar(64),
+  targetname varchar(64),
+  faketargetname varchar(64)
+);
+CREATE TABLE playernames (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  firstname varchar(64),
+  lastname varchar(64),
+  fakefirstname varchar(64),
+  fakelastname varchar(64),
+  formationorder integer
+);

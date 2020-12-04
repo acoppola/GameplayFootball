@@ -1,0 +1,14 @@
+<object>
+
+	<light>
+		<name>zon</name>
+		<position>2000, -2200, 3000</position>
+		<properties>
+			<color>1.2, 1.2, 0.8</color>
+			<radius>1000000</radius>
+			<type>directional</type>
+			<shadow>true</shadow>
+		</properties>
+	</light>
+
+</object>

@@ -1,0 +1,21 @@
+<object>
+
+	<geometry>
+		<filename>generic.ase</filename>
+		<name>generic ball</name>
+		<position>0, 0, 0</position>
+		<localmode>absolute</localmode>
+		<properties>
+			<physicable>false</physicable>
+			<physics_collision_type>sphere</physics_collision_type>
+			<physics_collision_sphere_radius>0.11</physics_collision_sphere_radius>
+			<mass>0.43</mass>
+			<friction_1>4</friction_1>
+			<friction_2>4</friction_2>
+			<bounce>0.5</bounce>
+			<bounce_minimum_velocity>0.01</bounce_minimum_velocity>
+			<movable>true</movable>
+		</properties>
+	</geometry>
+
+</object>

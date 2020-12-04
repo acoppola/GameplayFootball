@@ -1,0 +1,3 @@
+#!/bin/sh
+rm animator
+make -j4

@@ -1,0 +1,23 @@
+[Notice] in [WorkerThread::operator()()]: Starting worker thread
+[Notice] in [WorkerThread::operator()()]: Starting worker thread
+[Notice] in [WorkerThread::operator()()]: Starting worker thread
+[Notice] in [WorkerThread::operator()()]: Starting worker thread
+[Notice] in [SystemManager::RegisterSystem]: Added system named 'GraphicsSystem'
+[Notice] in [OpenGLRenderer3D::operator()()]: Starting OpenGLRenderer3D thread
+[Notice] in [OpenGLRenderer3D::CreateContext]: Using OpenGL version 4.4.0 - Build 20.19.15.4531
+[Notice] in [OpenGLRenderer3D::CreateContext]: OpenGL major/minor 4.4
+[Notice] in [GraphicsSystem::Initialize]: Created context, resolution 1274 * 600 @ 32 bpp
+[Notice] in [GraphicsTask::operator()()]: Starting GraphicsSystemTask thread
+[Notice] in [OpenGLRenderer3D::CreateView]: Creating new view, id 0
+[Notice] in [OpenGLRenderer3D::DeleteView]: Deleting view, id 0
+[Notice] in [SystemManager::Exit]: Deleting system named 'GraphicsSystem'
+[Notice] in [GraphicsTask::operator()()]: Shutting down GraphicsSystemTask thread
+[Notice] in [OpenGLRenderer3D::operator()()]: Shutting down OpenGLRenderer3D thread
+[Notice] in [WorkerThread::operator()()]: Exiting worker thread
+[Notice] in [WorkerThread::operator()()]: Exiting worker thread
+[Notice] in [WorkerThread::operator()()]: Exiting worker thread
+[Notice] in [WorkerThread::operator()()]: Exiting worker thread
+[Notice] in [WorkerThread::~WorkerThread]: 4835 messages handled
+[Notice] in [WorkerThread::~WorkerThread]: 4887 messages handled
+[Notice] in [WorkerThread::~WorkerThread]: 4806 messages handled
+[Notice] in [WorkerThread::~WorkerThread]: 4819 messages handled
