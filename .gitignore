@@ -1,7 +1,8 @@
 cmake-build*/
 .idea/
 .vs/
-libs/
 Release/
 Debug/
 *.dll
+data/log.txt
+GameplayFootball.vcxproj.user
