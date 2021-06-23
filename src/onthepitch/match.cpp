@@ -230,7 +230,8 @@ Match::Match(MatchData *matchData, const std::vector<IHIDevice*> &controllers) :
   // sun
 
   Log(e_Notice, "Match", "Match", "Loading sun object");
-
+  //night
+  //sunNode = loader.LoadObject(GetScene3D(), "media/objects/lighting/night.object");
   sunNode = loader.LoadObject(GetScene3D(), "media/objects/lighting/generic.object");
   GetDynamicNode()->AddNode(sunNode);
   SetRandomSunParams();

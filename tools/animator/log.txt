@@ -17,7 +17,7 @@
 [Notice] in [WorkerThread::operator()()]: Exiting worker thread
 [Notice] in [WorkerThread::operator()()]: Exiting worker thread
 [Notice] in [WorkerThread::operator()()]: Exiting worker thread
-[Notice] in [WorkerThread::~WorkerThread]: 4835 messages handled
-[Notice] in [WorkerThread::~WorkerThread]: 4887 messages handled
-[Notice] in [WorkerThread::~WorkerThread]: 4806 messages handled
-[Notice] in [WorkerThread::~WorkerThread]: 4819 messages handled
+[Notice] in [WorkerThread::~WorkerThread]: 13795 messages handled
+[Notice] in [WorkerThread::~WorkerThread]: 14028 messages handled
+[Notice] in [WorkerThread::~WorkerThread]: 13803 messages handled
+[Notice] in [WorkerThread::~WorkerThread]: 13901 messages handled
